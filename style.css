@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Jacques+Francois&display=swap');
+
+/* MAIN SETTINGS */
+
+* {
+    /*# COLORS */
+    --MAIN: #2E2E2E;
+    --SECONDARY: #FFFFFF;
+
+    /*# FONTS */
+    --MAIN-FONT: "Jacques Francois";
+    --ART-FONT: "Indie Flower";
+}
+
+img {
+    display: block;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: grid;
+    color: var(--SECONDARY);
+    grid-template-areas: 
+     "hd"
+     "mn"
+     "ft";   
+     grid-template-rows: 150px 1fr 100px;
+}   
+
+header {
+    grid-area: "hd";
+    background-color: var(--MAIN);
+}
+
+main {
+    margin: 50px 10px 50px 10px;
+    grid-area: "mn";
+    background-color: var(--SECONDARY);
+}
+
+footer {
+    grid-area: "ft";
+    background-color: var(--MAIN);
+}
+
+h1 {
+    line-height: 1.3;
+    font-family: var(--MAIN-FONT);
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.art-text {
+    font-family: var(--ART-FONT);
+    font-size: 1.4em;
+    display: block;
+}
+
+.quote {
+    font-style: italic;
+}
+
+/* INDIVIDUAL THINGS */
+#logo {
+    margin: 10px 0 0 10px;
+    position: absolute;
+    max-width: min(112.5px, 10%);
+    height: auto;
+}
+
