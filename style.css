@@ -53,6 +53,37 @@ h1 {
     text-align: center;
 }
 
+input[type="radio"] {
+    -webkit-appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background: url(img/skull-radio-360x360.jpg) left center no-repeat;    
+    background-size: cover; 
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background: url(img/skull-radio-red-360x360.jpg) left center no-repeat;
+    background-size: cover; 
+}
+
+.questions {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 20px;
+}
+
+.question {
+    padding: 0 10px 10px 10px;
+    background-color: var(--MAIN);
+    color: var(--SECONDARY);
+    min-height: 80px;
+    height: fit-content;
+}
+
 .art-text {
     font-family: var(--ART-FONT);
     font-size: 1.4em;
@@ -63,6 +94,11 @@ h1 {
     font-style: italic;
 }
 
+.centered-resized {
+    width: min(500px, 80%);
+    margin: auto;
+}
+
 /* INDIVIDUAL THINGS */
 #logo {
     margin: 10px 0 0 10px;
@@ -71,3 +107,7 @@ h1 {
     height: auto;
 }
 
+#hero-gif {
+    max-width: 100%;
+    height: auto;
+}
