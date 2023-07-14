@@ -10,6 +10,9 @@
     /*# FONTS */
     --MAIN-FONT: "Jacques Francois";
     --ART-FONT: "Indie Flower";
+
+    /*# SIZES */
+    --CRESIZED-WIDTH: min(500px, 80%);
 }
 
 img {
@@ -50,6 +53,13 @@ h1 {
     line-height: 1.3;
     font-family: var(--MAIN-FONT);
     font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    line-height: 1.3;
+    font-family: var(--MAIN-FONT);
+    font-size: 2.2rem;
     text-align: center;
 }
 
@@ -131,6 +141,26 @@ input[type="radio"]:checked {
     height: auto;
 }
 
+#submitted-schedule-frame {
+    z-index: 1;
+    position: relative;
+    margin: 50px auto;
+    width: calc(var(--CRESIZED-WIDTH) + 25px);
+    height: 450px;
+    background: linear-gradient(to bottom, #ff1919FF, #800000, #330000);
+    background-color: var(--MAIN);
+}
+
+#submitted-schedule {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%) translateY(-50%);
+    position: absolute;
+    width: calc(var(--CRESIZED-WIDTH) + 75px);
+    height: calc(100% - 25px);
+    background-color: var(--MAIN);
+}
+
 #submit-btn {
     width: 70px;
     height: 25px;
@@ -144,6 +174,40 @@ input[type="radio"]:checked {
 
 #submit-btn:active {
     border-style: inset;
+}
+
+#score {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 10em;
+}
+
+#cross {
+    cursor: pointer;
+    top: 15px;
+    right: 40px;
+    position: absolute;
+    background-color: transparent;
+}
+
+#cross::after {
+    content: "";
+    transform: rotateZ(45deg);
+    position: absolute;
+    display: block;
+    background-color: var(--SECONDARY);
+    width: 5px;
+    height: 30px;
+}
+
+#cross::before {
+    content: "";
+    transform: rotateZ(-45deg);
+    position: absolute;
+    display: block;
+    background-color: var(--SECONDARY);
+    width: 5px;
+    height: 30px;
 }
 
 #banner-container {
