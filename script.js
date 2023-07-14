@@ -1,6 +1,7 @@
 const submitBtn = document.getElementById("submit-btn")
 const userScore = document.getElementById("score")
 const scoreFrame = document.getElementById("submitted-schedule-frame")
+const cross = document.getElementById("cross")
 const indexOfCorrectAnswers = [0, 2, 1, 1, 0, 2, 1]
 let userAnswers = []
 
@@ -29,6 +30,43 @@ submitBtn.addEventListener("click", function(){
     userScore.textContent = `${points}/${questionCount}`
     console.log(points)
     console.log(userAnswers)
-    
+    markAnswers(questionCount, questionOptions, userAnswers)
+    disableScroll()
+    scoreFrame.style.display = "block"
 })
 
+cross.addEventListener("click", function() {
+    scoreFrame.style.display = "none"
+    enableScroll()
+})
+
+function markAnswers(questionCount, optionCount, userAnswers) {
+    for (let i = 0; i < questionCount; ++i) {
+        for (let j = 0; j < optionCount; ++j) {
+            if (userAnswers[i].index === indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
+                document.getElementById(`q${i+1}a${j+1}`).style.color = "green"
+                console.log("green")
+            }
+
+            if (userAnswers[i].index != indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
+                document.getElementById(`q${i+1}a${j+1}`).style.color = "red"
+                console.log("red")
+            }
+           
+        }
+    }
+    
+}
+
+function disableScroll() {
+    let topScroll = window.scrollY
+    let leftScroll = window.scrollX
+
+    window.onscroll = function() {
+        window.scrollTo(leftScroll, topScroll)
+    }
+}
+
+function enableScroll() {
+    window.onscroll = function() {}
+}
