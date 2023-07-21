@@ -1,4 +1,5 @@
 const submitBtn = document.getElementById("submit-btn")
+const resetBtn = document.getElementById("reset-btn")
 const userScore = document.getElementById("score")
 const scoreFrame = document.getElementById("submitted-schedule-frame")
 const cross = document.getElementById("cross")
@@ -35,6 +36,21 @@ submitBtn.addEventListener("click", function(){
     scoreFrame.style.display = "block"
 })
 
+resetBtn.addEventListener("dblclick", () => {
+    const inputLabels = document.querySelectorAll("label[for*='q']")
+    const inputRadios = document.querySelectorAll("input[id*='q']")
+
+    inputLabels.forEach(elem => {
+        elem.style.color = "#ffffff"
+
+    })
+
+    inputRadios.forEach(elem => {
+        elem.checked = false
+    })
+    
+})
+
 cross.addEventListener("click", function() {
     scoreFrame.style.display = "none"
     enableScroll()
@@ -43,13 +59,18 @@ cross.addEventListener("click", function() {
 function markAnswers(questionCount, optionCount, userAnswers) {
     for (let i = 0; i < questionCount; ++i) {
         for (let j = 0; j < optionCount; ++j) {
+            let currentSelector = document.querySelector(`[for="q${i+1}a${j+1}"]`)
+            if (currentSelector.style.color == "rgb(5, 230, 31)" || currentSelector.style.color == "red") {
+                console.log("default")
+                currentSelector.style.color = "#FFFFFF"
+            }
             if (userAnswers[i].index === indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
-                document.querySelector(`[for="q${i+1}a${j+1}"]`).style.color = "#05E61F"
+                currentSelector.style.color = "rgb(5, 230, 31)"
                 console.log("green")
             }
 
             if (userAnswers[i].index != indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
-                document.querySelector(`[for="q${i+1}a${j+1}"]`).style.color = "red"
+                currentSelector.style.color = "red"
                 console.log("red")
             }
            

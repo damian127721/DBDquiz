@@ -136,6 +136,28 @@ label[for*="q"] {
     width: clamp(200px, 16vw, 250px);
 }
 
+.btns {
+    position: absolute;
+    right: 0;
+    bottom: -35px;
+}
+
+.btn {
+    width: 80px;
+    height: 35px;
+    float: right;
+    margin-left: 3px;
+    cursor: pointer;
+    color: var(--SECONDARY);
+    background-color: var(--MAIN);
+    border: 2px outset black;
+}
+
+.description {
+    margin: 0;
+    font-size: 0.75em;
+}
+
 /* INDIVIDUAL THINGS */
 #logo {
     display: none;
@@ -171,17 +193,6 @@ label[for*="q"] {
     width: calc(var(--CRESIZED-WIDTH) + 75px);
     height: calc(100% - 25px);
     background-color: var(--MAIN);
-}
-
-#submit-btn {
-    width: 70px;
-    height: 25px;
-    position: absolute;
-    bottom: -35px;
-    right: 0;
-    color: var(--SECONDARY);
-    background-color: var(--MAIN);
-    border: 2px outset black;
 }
 
 #submit-btn:active {
