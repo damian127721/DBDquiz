@@ -44,12 +44,12 @@ function markAnswers(questionCount, optionCount, userAnswers) {
     for (let i = 0; i < questionCount; ++i) {
         for (let j = 0; j < optionCount; ++j) {
             if (userAnswers[i].index === indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
-                document.getElementById(`q${i+1}a${j+1}`).style.color = "green"
+                document.querySelector(`[for="q${i+1}a${j+1}"]`).style.color = "#05E61F"
                 console.log("green")
             }
 
             if (userAnswers[i].index != indexOfCorrectAnswers[i] && userAnswers[i].index === j) {
-                document.getElementById(`q${i+1}a${j+1}`).style.color = "red"
+                document.querySelector(`[for="q${i+1}a${j+1}"]`).style.color = "red"
                 console.log("red")
             }
            

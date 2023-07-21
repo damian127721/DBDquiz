@@ -3,6 +3,9 @@
 /* MAIN SETTINGS */
 
 * {
+    /*# CSS-RESET */
+    box-sizing: border-box;
+
     /*# COLORS */
     --MAIN: #2E2E2E;
     --SECONDARY: #FFFFFF;
@@ -20,7 +23,6 @@ img {
 }
 
 body {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -30,7 +32,7 @@ body {
      "hd"
      "mn"
      "ft";   
-     grid-template-rows: 150px 1fr 100px;
+    grid-template-rows: minmax(150px, max-content) 1fr 100px;
 }   
 
 header {
@@ -66,6 +68,7 @@ h2 {
 input[type="radio"] {
     -webkit-appearance: none;
     border-radius: 50%;
+    margin-right: 3px;
     width: 20px;
     height: 20px;
     background: url(img/skull-radio-360x360.jpg) left center no-repeat;    
@@ -77,6 +80,11 @@ input[type="radio"] {
 input[type="radio"]:checked {
     background: url(img/skull-radio-red-360x360.jpg) left center no-repeat;
     background-size: cover; 
+}
+
+label[for*="q"] {
+    line-height: 1.5em;
+    white-space: nowrap;
 }
 
 .questions {
@@ -125,11 +133,12 @@ input[type="radio"]:checked {
 
 .banner img {
     height: auto;
-    width: 200px;
+    width: clamp(200px, 16vw, 250px);
 }
 
 /* INDIVIDUAL THINGS */
 #logo {
+    display: none;
     margin: 10px 0 0 10px;
     position: absolute;
     max-width: min(112.5px, 10%);
@@ -142,6 +151,7 @@ input[type="radio"]:checked {
 }
 
 #submitted-schedule-frame {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -215,22 +225,29 @@ input[type="radio"]:checked {
 #banner-container {
     display: none;
     position: relative;
-    width: 1100px;
+    width: clamp(1100px, 84vw, 1500px);
     margin: auto;
 }
 
 #meg {
     right: 0;
-    top: 200px;
+    top: 150px;
 }
 
 #executioneir {
     left: 0;
-    top: 600px;
+    top: 500px;
 }
 
 @media screen and (min-width: 1150px) {
     #banner-container {
+        display: block;
+    }
+}
+
+
+@media screen and (min-width: 430px) {
+    #logo {
         display: block;
     }
 }
